@@ -1,4 +1,5 @@
 from personnage import Personnage
+from armure import Armure
 import random
 
 
@@ -6,7 +7,8 @@ class Guerrier(Personnage):
     """Classe Guerrier, enfant de Personnage."""
 
     def __init__(self, nom: str, vie: int, attaque: int, force: int) -> None:
-        super().__init__(nom, vie, attaque)
+        defense = Armure("armure de plaques ", 12).defense
+        super().__init__(nom, vie, attaque, defense)
         self.force = force
 
     @property
@@ -28,4 +30,9 @@ class Guerrier(Personnage):
         return degats
 
     def __str__(self) -> str:
-        return f"Guerrier({self.nom}, vie={self.vie}, attaque={self.attaque}, force={self.force})"
+        return f"Guerrier({self.nom}, vie={self.vie}, attaque={self.attaque}, force={self.force}, defense={self.defense})"
+
+
+
+
+

@@ -1,4 +1,5 @@
 from personnage import Personnage
+from armure import Armure
 import random
 
 
@@ -7,6 +8,8 @@ class Archer(Personnage):
 
     def __init__(self, nom: str, vie: int, attaque: int, dexterite: int) -> None:
         super().__init__(nom, vie, attaque)
+        self.defense = Armure("armure en cuir", 5).defense
+        super().__init__(nom, vie, attaque, self.defense)
         self.dexterite = dexterite
 
     @property
@@ -34,5 +37,5 @@ class Archer(Personnage):
         return degats
 
     def __str__(self) -> str:
-        return f"Archer({self.nom}, vie={self.vie}, attaque={self.attaque}, dexterite={self.dexterite})"
+        return f"Archer({self.nom}, vie={self.vie}, attaque={self.attaque}, dexterite={self.dexterite}, defense={self.defense})"
 
